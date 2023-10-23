@@ -6,7 +6,7 @@ get_ip_address() {
 }
 
 # Function to get DNS servers
-get_dns_servers() {
+get_dns_server() {
     grep '^nameserver' /etc/resolv.conf | awk '{print $2}'
 }
 
@@ -42,7 +42,7 @@ filename="network_info_$timestamp.txt"
   echo "Date and Time: $timestamp"
   echo "IP Address: $(get_ip_address)"
   echo "DNS Servers:"
-  get_dns_servers
+  get_dns_server
   echo "Open Ports:"
   get_open_ports
   echo "Network Interfaces:"
